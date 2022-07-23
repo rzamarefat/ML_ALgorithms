@@ -2,22 +2,20 @@ import numpy as np
 import math
 
 class KNN:
-    def __init__(self, X_train, y_train):
-        self.X_train = X
-        self.y_train = y 
+    def __init__(self, X_train, y_train, k=3):
+        self.X_train = X_train
+        self.y_train = y_train
+        self.k = k
 
-    def predict(self, X_test):
-        distances = self._get_distances(X_test)
+    def train(self, sample):
+        distances = [(self._calc_distance(sample, x), y) for x, y in zip(self.X_train, self.y_train)]
+        distances.sort(key=lambda a: a[0])
 
-    def _get_distances(self, X_test):
-        [(x) for x in X_test]
+        classes_holder = [class_ for (_, class_) in distances[0: self.k]]
+        predicted_class = max(set(classes_holder), key = classes_holder.count)
 
-    def _calc_distance(self, x_1, x_2):
-        d = 0
-        for index, i in x_1:
-            d += (i - x_2) ** 2
+        print(f"The sample belongs to the class: {predicted_class}")
+        
 
-        return math.sqrt(d)
-
-
-
+    def _calc_distance(self, sample_1, sample_2):
+        return np.sqrt(np.sum((sample_1 - sample_2) ** 2))
