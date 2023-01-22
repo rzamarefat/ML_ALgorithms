@@ -9,20 +9,19 @@ class LinearRegression:
     def train(self, X_train, y_train):
         num_samples, num_features = X_train.shape
 
-        weights = np.zeros(num_features)
-        bias = 0
+        self.weights = np.zeros(num_features)
+        self.bias = 0
+        
 
         for _ in range(self.num_iteration):
-            y_predicted = np.dot(X_train, weights) + bias
+            y_predicted = np.dot(X_train, self.weights) + self.bias
 
-            dw = (1 / num_samples) * np.dot(X.T, (y_predicted - y))
-            db = (1 / num_samples) * np.sum(y_predicted - y)
+            dw = (1 / num_samples) * np.dot(X_train.T, (y_predicted - y_train))
+            db = (1 / num_samples) * np.sum(y_predicted - y_train)
 
             self.weights -= self.lr * dw
             self.bias -= self.lr * db
 
-
-
-    def predict(self):
-        y_predicted = np.dot(X_train, weights) + bias
+    def predict(self, X):
+        y_predicted = np.dot(X, self.weights) + self.bias
         return y_predicted
