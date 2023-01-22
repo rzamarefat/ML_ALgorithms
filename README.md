@@ -4,15 +4,15 @@
 
 - [x] KNN
 - [x] Regression
-- [] Logistic Regression
-- [] Naive Bayes
-- [] Perceptron
-- [] SVM
-- [] Decision Tree
-- [] Random Forest
-- [] PCA
-- [] K-Means
-- [] AdaBoost
-- [] LDA
+- [ ] Logistic Regression
+- [ ] Naive Bayes
+- [ ] Perceptron
+- [ ] SVM
+- [ ] Decision Tree
+- [ ] Random Forest
+- [ ] PCA
+- [ ] K-Means
+- [ ] AdaBoost
+- [ ] LDA
 
 
